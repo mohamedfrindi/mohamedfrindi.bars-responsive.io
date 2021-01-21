@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bars Responsive</title>
+
+    <!-- style css -->
+    <style>
+
+        /*-------------- font ------------*/
+        @import url('https://fonts.googleapis.com/css2?family=Monoton&display=swap');
+        /*
+        font-family: 'Monoton', cursive;
+        */
+
+        body{
+            background-color: #e74c3c;
+        }
+
+        ul{
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+        }
+
+        /*------------- bars -------------*/
+        .bars-icone{
+            position: fixed;
+            top: 3%;
+            right: 3%;
+            width: 40px;
+            cursor: pointer;
+            direction: rtl;
+            padding: 6px 0;
+            z-index: 999;
+            background-color:#0a0808;
+            padding: 15px 10px;
+            border-radius: 7px;
+        }
+        .bars-icone .bar-lin{
+            width: 100%;
+            height: 3px;
+            border-radius: 5px;
+            background-color: white;
+            display: block;
+            margin-bottom: 6px;
+        }
+        .bars-icone .bar-lin:last-child{
+            margin-bottom: 0;
+        }
+        .bars-icone .bar-lin.lin-1{
+            width: 40%;
+        }
+        .bars-icone .bar-lin.lin-2{
+            width: 70%;
+        }
+        .bars-icone .bar-lin.lin-3{
+            width: 100%;
+        }
+
+        .bars-content{
+            position: fixed;
+            top: -100%;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: #0a0808;
+            z-index: 9999;
+        }
+        .bars-icone-cancel{
+            position: absolute;
+            top: 6%;
+            right: 4%;
+            padding: 10px;
+            cursor: pointer;
+            transition: all.5s ease;
+            opacity: .8;
+        }
+        .bars-icone-cancel:hover{
+            transform: rotate(90deg);
+        }
+        .bars-icone-cancel-1{
+            height: 2px;
+            width: 35px;
+            background-color: whitesmoke;
+            display: block;
+            margin: 4px;
+            cursor: pointer;
+            padding: 1px;
+            border-radius: 20px;
+            transform: rotate(45deg);
+        }
+        .bars-icone-cancel-2{
+            height: 2px;
+            width: 35px;
+            background-color: whitesmoke;
+            display: block;
+            margin: 4px;
+            cursor: pointer;
+            padding: 1px;
+            border-radius: 20px;
+            transform: rotate(-45deg);
+        }
+
+        .bars-content-list{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+        .bars-content-list ul{
+            text-align: center;
+            z-index: 2;
+        }
+        .bars-content-list ul li a{
+            display: block;
+            color: gray;
+            font-size: 30px;
+            text-transform: uppercase;
+            line-height: 1.7;
+            cursor: pointer;
+            font-family: sans-serif;
+            transition:.5s ease;
+        }
+        .bars-content-list ul li a:hover{
+            color: white;
+        }
+        .bars-content-list ul li.active{
+            color: white;
+        }
+        .bars-content-list ul li::before{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transform: translate(-50%,-50%);
+            font-size: 7em;
+            font-weight: 400;
+            font-family: 'Monoton', cursive;
+            color: rgb(255, 255, 255,.1);
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0;
+            letter-spacing: 50px;
+            transition: all .4s ease;
+        }
+        .bars-content-list ul li:hover::before{
+            content: attr(data-text);
+            opacity: 1;
+            letter-spacing: 20px;
+        }
+        /*----------X-------------X-------------*/
+
+
+        /*------------ media ---------------*/
+        @media (max-width: 575px) {
+            .bars-content-list ul li::before{
+            font-size: 4em;
+            letter-spacing: 5px;
+            }
+            .bars-content-list ul li:hover::before{
+            letter-spacing: 2px;
+            }
+        }
+        @media (min-width: 576px) and (max-width: 767.98px) {
+            .bars-content-list ul li::before{
+            font-size: 4em;
+            letter-spacing: 5px;
+            }
+            .bars-content-list ul li:hover::before{
+            letter-spacing: 2px;
+            }
+        }
+        @media (min-width: 768px) and (max-width: 991.98px) {
+            .bars-content-list ul li::before{
+            font-size: 5em;
+            letter-spacing: 10px;
+            }
+            .bars-content-list ul li:hover::before{
+            letter-spacing: 5px;
+            }
+        }
+        /*------------X------------X---------*/
+
+
+    </style>
+
+
+</head>
+<body>
+
+
+
+    <!--------- nav bars ------------------->
+    <div class="bars-icone">
+        <span class="bar-lin lin-1"></span>
+        <span class="bar-lin lin-2"></span>
+        <span class="bar-lin lin-3"></span>
+    </div>
+    <div class="bars-content">
+        <div class="bars-icone-cancel">
+                <span class="bars-icone-cancel-1"></span>
+                <span class="bars-icone-cancel-2"></span>
+        </div>
+        <div class="bars-content-list">
+            <ul>
+                <li class="active" data-text="home"><a href="#">home</a></li>
+                <li data-text="about"><a href="#">about</a></li>
+                <li data-text="blog"><a href="#">blog</a></li>
+                <li data-text="portfolio"><a href="#">portfolio</a></li>
+                <li data-text="contact"><a href="#">contact</a></li>
+            </ul>
+        </div>
+    </div>
+<!------------X-------------X----------->
+
+
+
+<!-- jquery -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+<!-- script code -->
+<script>
+    // bars icone hover  ---------------------
+    $(document).ready(function () {
+        $('.bars-icone').hover(function () {
+                // over
+                $('.bars-icone span').animate({
+                    width : '100' + '%'
+                },500);
+            }, function () {
+                // out
+                $('.bar-lin.lin-1').animate({
+                    width : '40%' 
+                },500);
+                $('.bar-lin.lin-2').animate({
+                    width : '70%' 
+                },500);
+                $('.bar-lin.lin-3').animate({
+                    width : '100%' 
+                },500);
+            }
+        );
+    });
+    /*------------X------------X-------------*/
+
+    // bars click show and hide ----------------
+    $(document).ready(function () {
+        $('.bars-icone').on('click',function () {
+            $('.bars-content').animate({
+                top : '0'
+            },1000);
+        });
+        $('.bars-icone-cancel').on('click',function () {
+            $('.bars-content').animate({
+                top : '-100' + '%'
+            },700);
+        });
+    });
+    /*--------------X------------X-------------*/
+</script>
+
+</body>
+</html>
